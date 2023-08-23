@@ -2,6 +2,8 @@
 #include <stdlib.h>
 
 #include <X11/Xlib.h>
+#include <X11/extensions/shape.h>
+#include <X11/extensions/Xfixes.h>
 
 enum {
     RECT_X = 20,
@@ -13,7 +15,7 @@ enum {
     WIN_Y = 10,
     WIN_WIDTH = 100,
     WIN_HEIGHT = 100,
-    WIN_BORDER = 1
+    WIN_BORDER = 1,
 };
 
 int main() {
@@ -41,6 +43,11 @@ int main() {
 
     /* select kind of events we are interested in */
     XSelectInput(display, window, ExposureMask | KeyPressMask);
+
+    XRectangle rect;
+    XserverRegion region = XFixesCreateRegion(display, &rect, 1);
+    XFixesSetWindowShapeRegion(display, window, ShapeInput, 0, 0, region);
+    XFixesDestroyRegion(display, region);
 
     /* display the window */
     XMapWindow(display, window);
