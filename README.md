@@ -1,1 +1,1 @@
-I moved my experiments to the `battery_overlay` repository. The move commit is `950a78f17324a9586fd638e90cfb53717de8ef93`
+I moved my experiments to the `battery_overlay` repository (https://github.com/megahomyak/battery_overlay). The move commit is `950a78f17324a9586fd638e90cfb53717de8ef93` (https://github.com/megahomyak/battery_overlay/tree/950a78f17324a9586fd638e90cfb53717de8ef93)
